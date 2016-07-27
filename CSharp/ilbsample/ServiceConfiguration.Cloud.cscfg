@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="ilbsample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WebRole1">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=7sportalvhdsfgpkb8x18yll;AccountKey=3tCHO+75kekbfSdPdxdVEp986MwzkNJkCu3kxWg0pVP5JaG8cjRY+lY7W/4ocTfSGpRdDQjQo19HB0lMNLr8Fw==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="ice" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEEYQMASD32ySQKJs5agNtekwDQYJKoZIhvcNAQEBBQAEggEAbuqHsBLRrUxathMrDhRMoX5CCE0iQOCtc4U1GFsUZHDzfhBqLxKWSgOKBCJN81nf/bnIIy4modNOBoI06RUQj54er/4TEWinjMltINix770qC+8o6gM6iubU7+HS4mzACUf0UdNj3hGpmJyUvsSzKMB4yPjNdr0tlnU3mP0Xx+1bX989uoPFMK3Hnub86aHJqGL9dI7i5MbfcCxrtOiVfF4P1qeX6lMgqbwKWFehNdzFw5toqxaD6K3RzAcuyoXnzHmaiCujy2n53Qbd+sZ+NDpEpS5tR0tHYDYzr9b8zrAnqtZEX42yqx8nH7UcpjWIuGM3FJu/jZQhtXDqe+hTPTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECLqRl/0lYfqkgBABsbyAQBJJE08DNCPQdpTs" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2017-07-21T23:59:59.0000000+08:00" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="D2C10F33F58A558E80A8099FC101AFA4FBE01423" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <Role name="WorkerRole1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=7sportalvhdsfgpkb8x18yll;AccountKey=3tCHO+75kekbfSdPdxdVEp986MwzkNJkCu3kxWg0pVP5JaG8cjRY+lY7W/4ocTfSGpRdDQjQo19HB0lMNLr8Fw==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="ice" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEEYQMASD32ySQKJs5agNtekwDQYJKoZIhvcNAQEBBQAEggEAbuqHsBLRrUxathMrDhRMoX5CCE0iQOCtc4U1GFsUZHDzfhBqLxKWSgOKBCJN81nf/bnIIy4modNOBoI06RUQj54er/4TEWinjMltINix770qC+8o6gM6iubU7+HS4mzACUf0UdNj3hGpmJyUvsSzKMB4yPjNdr0tlnU3mP0Xx+1bX989uoPFMK3Hnub86aHJqGL9dI7i5MbfcCxrtOiVfF4P1qeX6lMgqbwKWFehNdzFw5toqxaD6K3RzAcuyoXnzHmaiCujy2n53Qbd+sZ+NDpEpS5tR0tHYDYzr9b8zrAnqtZEX42yqx8nH7UcpjWIuGM3FJu/jZQhtXDqe+hTPTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECLqRl/0lYfqkgBABsbyAQBJJE08DNCPQdpTs" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2017-07-21T23:59:59.0000000+08:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="D2C10F33F58A558E80A8099FC101AFA4FBE01423" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <NetworkConfiguration>
+    <VirtualNetworkSite name="Group Group tstvs2015" />
+    <AddressAssignments>
+      <InstanceAddress roleName="WebRole1">
+        <Subnets>
+          <Subnet name="Subnet-1" />
+        </Subnets>
+      </InstanceAddress>
+      <InstanceAddress roleName="WorkerRole1">
+        <Subnets>
+          <Subnet name="Subnet-1" />
+        </Subnets>
+      </InstanceAddress>
+    </AddressAssignments>
+    <LoadBalancers>
+      <LoadBalancer name="test_ilb1">
+        <FrontendIPConfiguration type="private" subnet="Subnet-1" staticVirtualNetworkIPAddress="10.0.0.130" />
+      </LoadBalancer>
+    </LoadBalancers>
+  </NetworkConfiguration>
+</ServiceConfiguration>

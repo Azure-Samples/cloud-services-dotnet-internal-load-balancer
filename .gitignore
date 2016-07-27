@@ -1,0 +1,25 @@
+# ignote the ignore config file itself
+#.gitignore
+
+# ignore ReSharper generated files
+_ReSharper*/
+
+# ignore all files in "bin" folder
+bin/
+Bin/
+
+# ignore all files in "obj" folder
+obj/
+
+# ignore all files in "publish" folder
+publish/
+
+# ignore Debug and Release folder
+Debug/
+Release/
+
+# ignore User Options file
+*.suo
+*.sap
+/CrazyGuessing/CrazyGuessing/obj
+/CrazyGuessing/CrazyGuessing/Bin

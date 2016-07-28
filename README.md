@@ -15,7 +15,7 @@ https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create
 1	*__Open Solution in Visual Studio 2015__*
 
 Now you can use Visual Studio 2015 to build a cloud service solution.
-This solution contains cloud service project with 1 web role project and 1 work role. 
+This solution contains cloud service project with 1 web role project and 1 work role.
 
 2	*__Configure Service Definition File__*
 
@@ -44,7 +44,7 @@ Change the following settings as yours.
   </WebRole>
 ```
 This cloud service has 2 endpoints, once we binding endpoint2 with ILB, endpoint2 will no longer accessible by cloudservice.cloudapp.net:endpoint2. This endpoint2 only can be accessible by ILB’s IP + port.
-If we don’t want cloud service be accessible from outside the VNet, just remove the endpoint1. 
+If we don’t want cloud service be accessible from outside the VNet, just remove the endpoint1.
 
 3	*__Configure Service Configuration File__*
 
@@ -78,25 +78,20 @@ Add above configuration under last  __&lt;/ Role>__.
 
 Right click cloud service project and choose “Publish…” command.
 
-![1](https://github.com/SpAiNiOr/AzureILBSample/Images/1.jpg)
+![1](./Images/1.jpg)
 
 Choose or create an Cloud Service.
 
-![2](https://github.com/SpAiNiOr/AzureILBSample/Images/2.jpg)
+![2](./Images/2.jpg)
 
 Choose or create an Storage Account
 
-![3](https://github.com/SpAiNiOr/AzureILBSample/Images/3.jpg)
+![3](./Images/3.jpg)
 
 Then Publish
 
-![4](https://github.com/SpAiNiOr/AzureILBSample/Images/4.jpg)
+![4](./Images/4.jpg)
 
-__How to verify?__ 
+__How to verify?__
 
 We can login to a VM within that VNet, then try access the Cloud Service by ILB's IP  with port 8080 to verify if the internal load balancer works fine or not.
-
-## Third-party solution disclaimer
-
-The information and the solution in this document represent the current view of Microsoft Corporation on these issues as of the date of publication. This solution is available through Microsoft or a third-party provider. We do not specifically recommend any third-party provider or third-party solution that this article might describe. There might also be other third-party providers or third-party solutions that this article does not describe. Because we must respond to changing market conditions, this information should not be interpreted as a commitment by Microsoft. We cannot guarantee or endorse the accuracy of any information or of any solution that is presented by Microsoft or by any mentioned third-party provider. 
-Microsoft makes no warranties and excludes all representations, warranties, and conditions whether express, implied, or statutory. These include but are not limited to representations, warranties, or conditions of title, non-infringement, satisfactory condition, merchantability, and fitness for a particular purpose, with regard to any service, solution, product, or any other materials or information. In no event will Microsoft be liable for any third-party solution that this article mentions.

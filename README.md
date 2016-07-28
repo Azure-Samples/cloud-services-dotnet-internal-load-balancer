@@ -1,3 +1,9 @@
+---
+services: cloudservice
+platforms: dotnet
+author: msonecode
+---
+
 # How to create Internal Load Balancer for PaaS Cloud Service
 
 ## Introduction
@@ -6,18 +12,18 @@ This example is to help you configure Internal Load Balancer for web role. This 
 **Please note, if you binding a port for ILB, this port will be only accessible by ILB**.  
 
 ## Prerequisites
-1	*__Virtual Network__*
+*__Virtual Network__*
 
 Internal Load Balance needs deploy to a Virtual Network, please follow the following wizard to create one.
 https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-vnet-classic-portal/
 
 ## Building the Sample
-1	*__Open Solution in Visual Studio 2015__*
+*__1.	Open Solution in Visual Studio 2015__*
 
 Now you can use Visual Studio 2015 to build a cloud service solution.
 This solution contains cloud service project with 1 web role project and 1 work role.
 
-2	*__Configure Service Definition File__*
+*__2.	Configure Service Definition File__*
 
 Open ServiceDefinition.csdef, add a __Endpoint2__ for load balancer to use.
 Change the following settings as yours.
@@ -46,7 +52,7 @@ Change the following settings as yours.
 This cloud service has 2 endpoints, once we binding endpoint2 with ILB, endpoint2 will no longer accessible by cloudservice.cloudapp.net:endpoint2. This endpoint2 only can be accessible by ILB’s IP + port.
 If we don’t want cloud service be accessible from outside the VNet, just remove the endpoint1.
 
-3	*__Configure Service Configuration File__*
+*__3.	Configure Service Configuration File__*
 
 Open ServiceConfiguration.Cloud.cscfg and change content as below.
 Change the following settings as yours.
@@ -76,22 +82,22 @@ Add above configuration under last  __&lt;/ Role>__.
 
 ## Running the Sample
 
-Right click cloud service project and choose “Publish…” command.
+- Right click cloud service project and choose “Publish…” command.
 
-![1](./Images/1.jpg)
+ ![1](./Images/1.jpg)
 
-Choose or create an Cloud Service.
+- Choose an existed or create a new Cloud Service in cloud service dropdown list.
 
-![2](./Images/2.jpg)
+ ![2](./Images/2.jpg)
 
-Choose or create an Storage Account
+- Choose an existed or create a new Storage Account in storage account dropdown list.
 
-![3](./Images/3.jpg)
+ ![3](./Images/3.jpg)
 
-Then Publish
+- Then Publish
 
-![4](./Images/4.jpg)
+ ![4](./Images/4.jpg)
 
-__How to verify?__
+## How to verify
 
 We can login to a VM within that VNet, then try access the Cloud Service by ILB's IP  with port 8080 to verify if the internal load balancer works fine or not.

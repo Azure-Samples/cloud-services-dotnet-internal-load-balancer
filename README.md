@@ -27,6 +27,7 @@ This solution contains cloud service project with 1 web role project and 1 work 
 
 Open ServiceDefinition.csdef, add a __Endpoint2__ for load balancer to use.
 Change the following settings as yours.
+
 ```c#
   <WebRole name="WebRole1" vmsize="Small">
     <Sites>
@@ -49,6 +50,7 @@ Change the following settings as yours.
     </Imports>
   </WebRole>
 ```
+
 This cloud service has 2 endpoints, once we binding endpoint2 with ILB, endpoint2 will no longer accessible by cloudservice.cloudapp.net:endpoint2. This endpoint2 only can be accessible by ILB’s IP + port.
 If we don’t want cloud service be accessible from outside the VNet, just remove the endpoint1.
 
@@ -56,6 +58,7 @@ If we don’t want cloud service be accessible from outside the VNet, just remov
 
 Open ServiceConfiguration.Cloud.cscfg and change content as below.
 Change the following settings as yours.
+
 ```c#
 <NetworkConfiguration>
     <VirtualNetworkSite name="name of virtual network" />
@@ -78,6 +81,7 @@ Change the following settings as yours.
     </LoadBalancers>
   </NetworkConfiguration>
 ```
+
 Add above configuration under last  __&lt;/ Role>__.
 
 ## Running the Sample
@@ -94,10 +98,10 @@ Add above configuration under last  __&lt;/ Role>__.
 
  ![3](./Images/3.jpg)
 
-- Then Publish
+- Then publish this cloud service.
 
  ![4](./Images/4.jpg)
 
 ## How to verify
 
-We can login to a VM within that VNet, then try access the Cloud Service by ILB's IP  with port 8080 to verify if the internal load balancer works fine or not.
+We can login to a VM within that Azure Virtual Network, then try access the Cloud Service by ILB's IP  with port 8080 to verify if the internal load balancer works fine or not.

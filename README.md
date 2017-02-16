@@ -4,17 +4,17 @@ platforms: dotnet
 author: msonecode
 ---
 
-# How to create Internal Load Balancer for PaaS Cloud Service
+# How to create Internal Load Balancer for PaaS cloud service
 
 ## Introduction
-Sometime, we want only allow cloud service be accessed within a virtual network. Or we want access cloud service by static IP within a virtual network.
-This example is to help you configure Internal Load Balancer for web role. This ILB can be also used with worker role. And in this sample, we will be binding an ILB with port 8080 for web role.
-**Please note, if you binding a port for ILB, this port will be only accessible by ILB**.  
+Sometimes, we only want to allow cloud service be accessed within a virtual network, or we want to access cloud service by static IP within a virtual network.
+This example helps you to configure Internal Load Balancer for web role. This ILB can also be used as worker. In this sample, we will be binding an ILB with port 8080 for web role.
+**Note: If you bind a port for ILB, this port will only be accessible by ILB**.  
 
 ## Prerequisites
 *__Virtual Network__*
 
-Internal Load Balance needs deploy to a Virtual Network, please follow the following wizard to create one.
+Internal Load Balance needs you to deploy a virtual network. Please follow the below wizard to create one.
 https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-vnet-classic-portal/
 
 ## Building the Sample
@@ -51,8 +51,8 @@ Change the following settings as yours.
   </WebRole>
 ```
 
-This cloud service has 2 endpoints, once we binding endpoint2 with ILB, endpoint2 will no longer accessible by cloudservice.cloudapp.net:endpoint2. This endpoint2 only can be accessible by ILB’s IP + port.
-If we don’t want cloud service be accessible from outside the VNet, just remove the endpoint1.
+This cloud service has 2 endpoints. Once we have binded the endpoint2 with ILB, it will no longer be accessible by cloudservice.cloudapp.net:endpoint2. This endpoint2 can then be accessed only by ILB’s IP + port.
+If we don’t want cloud service to be accessible from outside the VNet, just remove the endpoint1.
 
 *__3.	Configure Service Configuration File__*
 
@@ -82,7 +82,7 @@ Change the following settings as yours.
   </NetworkConfiguration>
 ```
 
-Add above configuration under last  __&lt;/ Role>__.
+Add the above configuration under last  __&lt;/ Role>__.
 
 ## Running the Sample
 
@@ -104,4 +104,4 @@ Add above configuration under last  __&lt;/ Role>__.
 
 ## How to verify
 
-We can login to a VM within that Azure Virtual Network, then try access the Cloud Service by ILB's IP  with port 8080 to verify if the internal load balancer works fine or not.
+We can log on to a VM within that Azure Virtual Network, then try accessing the Cloud Service by ILB's IP  with port 8080 to verify if the internal load balancer works fine or not.
